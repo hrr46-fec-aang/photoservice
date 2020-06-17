@@ -1,17 +1,41 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
+  "name": "camp-ang",
+  "version": "1.0.0",
+  "description": "Clone of hipcamp photo carousel",
+  "main": "index.js",
   "scripts": {
+    "test": "jest",
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr46-fec-aang/photoservice.git"
+  },
+  "author": "Jing Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrr46-fec-aang/photoservice/issues"
+  },
+  "homepage": "https://github.com/hrr46-fec-aang/photoservice#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
