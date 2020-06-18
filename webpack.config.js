@@ -1,12 +1,12 @@
-const path = require('path')
+const path = require('path');
 
-module.export = {
-  entry: path.resolve(__dirname, 'client/index.jsx')
+module.exports = {
+  entry: path.resolve(__dirname, 'client/index.jsx'),
   output: {
-    filename: 'bundel.js',
-    path: path.resolve(__dirname, 'public')
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
   },
-  mdoule: {
+  module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -17,7 +17,7 @@ module.export = {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
-      }
-     ]
-   }
-}
+      },
+    ],
+  },
+};
