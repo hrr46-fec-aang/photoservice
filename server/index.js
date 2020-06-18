@@ -1,12 +1,4 @@
-const express = require('express');
-const morgan = require('morgan');
-
-const app = express();
-
-app.use(morgan('dev'));
-app.use(express.static(__dirname + '/../public'));
-
-app.get('/hello', (req, res) => res.send('Hello World'));
+const app = require('./app');
 
 let port = 2333;
 app.listen(port, () => {
