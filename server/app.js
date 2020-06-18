@@ -1,8 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const Photo = require('./database/photo.js');
-
 const app = express();
 
 app.use(morgan('dev'));

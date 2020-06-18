@@ -7,7 +7,7 @@ test('It adds two numbers', () => {
 });
 
 describe('GET /hello ', () => {
-  test('It should respond with hellow world', async () => {
+  test('It should respond with hello world', async () => {
     const response = await request(app).get('/hello');
     expect(response.body).toEqual('Hello World');
     expect(response.statusCode).toBe(200);
