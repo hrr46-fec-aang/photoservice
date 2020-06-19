@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const Camp = require('./database/Camp.js');
 const app = express();
 
 app.use(morgan('dev'));
