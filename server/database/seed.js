@@ -45,7 +45,7 @@ var randomDataGenerator = function () {
       });
     }
     var newCamp = {
-      _id: id,
+      _id: JSON.stringify(id),
       location: faker.address.streetName(),
       photos: photoarray,
     };
