@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 var campSchema = new mongoose.Schema({
-  _id: String, //starting at 1
+  id: String, //starting at 1
   location: String,
   photos: [
     {

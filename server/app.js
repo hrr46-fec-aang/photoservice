@@ -13,11 +13,12 @@ app.use(express.static(__dirname + '/../public'));
 
 app.get('/hello', (req, res) => res.json('Hello World'));
 
-app.get('/:_id', (req, res) => {
-  var campid = req.params;
-  Camp.findById(campid, (err, campsite) => {
+app.get('/:id', (req, res) => {
+  var campid = req.params.id;
+
+  Camp.find({ id: campid }).exec((err, campsite) => {
     if (err) {
-      res.status(404).sends(err);
+      res.status(404).send(err);
     } else {
       res.status(200).json(campsite);
     }
