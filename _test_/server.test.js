@@ -5,6 +5,7 @@ const Camp = require('../server/database/Camp.js');
 
 describe('server test ', () => {
   beforeAll(async () => {
+    jest.setTimeout(30000);
     const url = `mongodb://127.0.0.1/testDB`;
     await mongoose.connect(url, {
       useNewUrlParser: true,
@@ -50,4 +51,4 @@ describe('server test ', () => {
     expect(response.statusCode).toBe(200);
     done();
   });
-}, 30000);
+});
