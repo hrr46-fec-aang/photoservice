@@ -9,6 +9,9 @@
     "build": "webpack -d --watch",
     "db:setup": "node server/database/seed.js"
   },
+  "jest": {
+  "testEnvironment": "node"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrr46-fec-aang/photoservice.git"
