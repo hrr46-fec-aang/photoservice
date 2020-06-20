@@ -6,14 +6,18 @@ const Camp = require('../server/database/Camp.js');
 describe('server test ', () => {
   beforeAll(async () => {
     const url = `mongodb://127.0.0.1/testDB`;
-    await mongoose.connect(url, { useNewUrlParser: true });
+    await mongoose.connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   });
 
   afterEach(async () => {
     await Camp.deleteMany();
+    await mongoose.disconnect();
   });
 
-  it('should respond with the campsite json object accordingly to the id', async () => {
+  it('should respond with the campsite json object accordingly to the id', async (done) => {
     var testCamp = new Camp({
       id: '1',
       location: 'Texas',
@@ -41,5 +45,6 @@ describe('server test ', () => {
     expect(response.body[0].location).toEqual('Texas');
     expect(response.body[0].photos.length).toEqual(1);
     expect(response.statusCode).toBe(200);
+    done();
   });
 });
