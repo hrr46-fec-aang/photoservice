@@ -14,6 +14,9 @@ describe('server test ', () => {
 
   afterEach(async () => {
     await Camp.deleteMany();
+  });
+
+  afterAll(async () => {
     await mongoose.disconnect();
   });
 
@@ -35,7 +38,7 @@ describe('server test ', () => {
       ],
     });
 
-    testCamp.save((err, camp) => {
+    await testCamp.save((err, camp) => {
       if (err) {
         console.log(err);
       }
