@@ -50,4 +50,4 @@ describe('server test ', () => {
     expect(response.statusCode).toBe(200);
     done();
   });
-});
+}, 30000);
