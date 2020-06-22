@@ -28,6 +28,7 @@ class App extends React.Component {
         });
       })
       .catch((err) => {
+        this.setState({ isLoaded: true });
         console.log(err);
       });
   }
