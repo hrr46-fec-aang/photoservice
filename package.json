@@ -10,7 +10,7 @@
     "db:setup": "node server/database/seed.js"
   },
   "jest": {
-  "testEnvironment": "node"
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
