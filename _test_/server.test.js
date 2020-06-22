@@ -45,8 +45,9 @@ describe('server test ', () => {
     // });
 
     const response = await request(app).get('/site/110');
-    expect(response.body[0].location).toEqual('Cletus Points');
-    expect(response.body[0].photos.length).toEqual(9);
+    expect(response.body[0].id).toEqual('110');
+    expect(response.body[0].photos.length).toBeGreaterThanOrEqual(5);
+    expect(response.body[0].photos.length).toBeLessThanOrEqual(10);
     expect(response.statusCode).toBe(200);
     done();
   });
