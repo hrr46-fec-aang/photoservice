@@ -44,7 +44,7 @@ describe('server test ', () => {
       }
     });
 
-    const response = await request(app).get('/1');
+    const response = await request(app).get('/site/1');
     expect(response.body[0].location).toEqual('Texas');
     expect(response.body[0].photos.length).toEqual(1);
     expect(response.statusCode).toBe(200);
