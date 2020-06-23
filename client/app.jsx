@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Photo from './photo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -40,9 +41,9 @@ class App extends React.Component {
       return (
         <div>
           <div className="NavBar"></div>
-          <div>
+          <div className="photobanner">
             {this.state.photos.map((photo) => {
-              return <img src={photo.url} />;
+              return <Photo photo={photo} key={photo._id} />;
             })}
           </div>
         </div>
