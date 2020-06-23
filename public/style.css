@@ -1,5 +1,17 @@
 .NavBar {
-  height: 50px;
+  height: 100px;
   width: 100%;
   background-color: aqua;
+}
+
+.photobanner {
+  height: 480px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+img {
+  height: 100%;
+  padding: 5px;
 }
