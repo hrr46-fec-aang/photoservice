@@ -4,7 +4,7 @@
   "description": "Clone of hipcamp photo carousel",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand --detectOpenHandles --forceExit",
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "db:setup": "node server/database/seed.js"

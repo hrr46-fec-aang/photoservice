@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Camp = require('./database/Camp.js');
-const db = require('./database/index.js');
 
 const app = express();
 
