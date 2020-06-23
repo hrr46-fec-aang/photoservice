@@ -51,4 +51,19 @@ describe('server test ', () => {
     expect(response.statusCode).toBe(200);
     done();
   });
+
+  it('should response the same photo according to photo id and campsite id', async (done) => {
+    await Camp.find({ id: 4 }).exec(async (err, campsite) => {
+      if (err) {
+        console.log(err);
+      } else {
+        var photoid = campsite[0].photos[0]._id;
+        const response = await request(app).get(`/site/4/${photoid}`);
+        expect(response.body[0].id).toEqual('4');
+        expect(response.body[0].photos.length).toEqual(1);
+        expect(response.statusCode).toBe(200);
+      }
+    });
+    done();
+  });
 });
