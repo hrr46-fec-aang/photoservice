@@ -4,7 +4,7 @@
   "description": "Clone of hipcamp photo carousel",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --detectOpenHandles ",
+    "test": "jest --runInBand --detectOpenHandles --forceExit ",
     "test:coverage": "jest --coverage --colors",
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
