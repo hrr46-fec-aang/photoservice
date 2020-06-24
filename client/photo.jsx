@@ -1,12 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-const Image = styled.img`
+
+const ImageinBanner = styled.img`
   height: 100%;
   padding: 5px;
 `;
 
-const Photo = ({ photo }) => {
-  return <Image src={photo.url}></Image>;
-};
+class Photo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  photoClickHandler() {
+    this.props.clickHandler(this.props.photo._id);
+  }
+  render() {
+    return (
+      <ImageinBanner
+        src={this.props.photo.url}
+        onClick={this.photoClickHandler.bind(this)}
+      ></ImageinBanner>
+    );
+  }
+}
 
 export default Photo;

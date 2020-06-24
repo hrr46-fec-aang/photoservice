@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Photo from './photo.jsx';
+import LargePhoto from './largePhoto.jsx';
 import styled from 'styled-components';
 
 const PhotoBanner = styled.div`
@@ -22,6 +23,7 @@ class App extends React.Component {
       photos: [],
       campsite: {},
       isLoaded: false,
+      currentPhoto: {},
     };
   }
 
@@ -47,20 +49,57 @@ class App extends React.Component {
       });
   }
 
+  photoClickHandler(photoid) {
+    const url = window.location.pathname;
+    const id = url.slice(1, url.length - 1);
+    axios.get(`/site/${id}/${photoid}`).then((res) => {
+      this.setState({
+        currentPhoto: res.data[0],
+      });
+      console.log(this.state.currentPhoto);
+    });
+  }
+
   render() {
     if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return (
-        <div>
-          <Navbar>Place holder for navbar</Navbar>
-          <PhotoBanner>
-            {this.state.photos.map((photo) => {
-              return <Photo photo={photo} key={photo._id} />;
-            })}
-          </PhotoBanner>
-        </div>
-      );
+      if (this.state.currentPhoto.id !== undefined) {
+        return (
+          <div>
+            <Navbar>Place holder for navbar</Navbar>
+            <PhotoBanner>
+              {this.state.photos.map((photo) => {
+                return (
+                  <Photo
+                    photo={photo}
+                    key={photo._id}
+                    clickHandler={this.photoClickHandler.bind(this)}
+                  />
+                );
+              })}
+            </PhotoBanner>
+            <LargePhoto currentphoto={this.state.currentPhoto} />
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <Navbar>Place holder for navbar</Navbar>
+            <PhotoBanner>
+              {this.state.photos.map((photo) => {
+                return (
+                  <Photo
+                    photo={photo}
+                    key={photo._id}
+                    clickHandler={this.photoClickHandler.bind(this)}
+                  />
+                );
+              })}
+            </PhotoBanner>
+          </div>
+        );
+      }
     }
   }
 }
