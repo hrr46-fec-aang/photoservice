@@ -56,6 +56,7 @@ describe('server test ', () => {
     await mongoose.disconnect();
     await mongoose.connection.db.dropDatabase();
     await mongoose.connection.close();
+    done();
   });
 
   it('should respond with the campsite json object accordingly to the id', async (done) => {
