@@ -14,7 +14,9 @@ describe('server test ', () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+  });
 
+  beforeEach(async () => {
     var testCamp = new Camp({
       id: '1',
       location: 'Texas',
@@ -51,7 +53,8 @@ describe('server test ', () => {
 
   afterAll(async () => {
     await Camp.drop();
-    await mongose.disconnect();
+    await mongoose.disconnect();
+    await mongoose.connection.db.dropDatabase();
     await mongoose.connection.close();
   });
 
@@ -63,18 +66,13 @@ describe('server test ', () => {
     done();
   });
 
-  // it('should response the same photo according to photo id and campsite id', async (done) => {
-  //   await Camp.find({ id: 4 }).exec(async (err, campsite) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       var photoid = campsite[0].photos[0]._id;
-  //       const response = await request(app).get(`/site/4/${photoid}`);
-  //       expect(response.body[0].id).toEqual('4');
-  //       expect(response.body[0].photos.length).toEqual(1);
-  //       expect(response.statusCode).toBe(200);
-  //     }
-  //   });
-  //   done();
-  // });
+  it('should respond with the campsite json object accordingly to the id', async (done) => {
+    const response = await request.get('/site/1');
+    const photoid = response.body[0].photos[0]._id;
+    const photo = await request.get(`/site/1/${photoid}`);
+
+    expect(photo.body[0].photos.length).toEqual(1);
+    expect(photo.body[0].photos[0].thumbs).toEqual(5);
+    done();
+  });
 });
