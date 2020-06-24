@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 var campSchema = new mongoose.Schema({
-  id: String, //starting at 1
+  id: { type: String, unique: true }, //starting at 1
   location: String,
   photos: [
     {
