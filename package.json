@@ -6,8 +6,8 @@
   "scripts": {
     "test:server": "jest ./_test_/server.test.js",
     "test:client": "jest ./_test_/client.test.js",
-    "test": "jest",
-    "test:coverage": "jest --coverage --colors",
+    "test": "jest --update-snapshot --detectOpenHandles",
+    "test:coverage": "jest --coverageDirectory='coverage'  --coverage --colors",
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "db:setup": "node server/database/seed.js"
