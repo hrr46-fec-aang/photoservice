@@ -46,7 +46,6 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
-    "leaked-handles": "^5.2.0",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
     "path": "^0.12.7",

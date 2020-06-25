@@ -2,7 +2,11 @@ node_modules
 public/bundle.js
 config.js
 .DS_Store
+coverage/**
+!coverage/lcov-report
+coverage/lcov-report/**
+!coverage/lcov-report/index.html
+
+
 npm-debug.log
 .env
-coverage
-!coverage/Icov-report/index.html
