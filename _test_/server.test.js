@@ -1,7 +1,10 @@
+/**
+ * @jest-environment node
+ */
 const app = require('../server/app');
 const supertest = require('supertest');
 const request = supertest(app);
-
+// require('leaked-handles');
 const mongoose = require('mongoose');
 mongoose.promise = global.Promise;
 const Camp = require('../server/database/Camp.js');
@@ -16,7 +19,7 @@ describe('server test ', () => {
     });
   });
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     var testCamp = new Camp({
       id: '1',
       location: 'Texas',
@@ -45,16 +48,15 @@ describe('server test ', () => {
     });
 
     await testCamp.save();
+    done();
   });
 
   afterEach(async () => {
     await Camp.deleteMany();
   });
 
-  afterAll(async () => {
-    await Camp.drop();
-    await mongoose.disconnect();
-    await mongoose.connection.db.dropDatabase();
+  afterAll(async (done) => {
+    // await mongoose.disconnect();
     await mongoose.connection.close();
     done();
   });

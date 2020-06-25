@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component should render correctly with no props 1`] = `ReactWrapper {}`;
+
+exports[`LargePhoto Component should match the test snapshot 1`] = `ReactWrapper {}`;
+
+exports[`Photo Component should match the test snapshot 1`] = `ReactWrapper {}`;
