@@ -4,7 +4,9 @@
   "description": "Clone of hipcamp photo carousel",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --detectOpenHandles --forceExit ",
+    "test:server": "jest ./_test_/server.test.js",
+    "test:client": "jest ./_test_/client.test.js",
+    "test": "jest",
     "test:coverage": "jest --coverage --colors",
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
@@ -29,6 +31,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
+    "sinon": "^9.0.2",
     "supertest": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
@@ -43,6 +46,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
+    "leaked-handles": "^5.2.0",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
