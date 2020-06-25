@@ -6,7 +6,5 @@ coverage/**
 !coverage/lcov-report
 coverage/lcov-report/**
 !coverage/lcov-report/index.html
-
-
 npm-debug.log
 .env
