@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 var campSchema = new mongoose.Schema({
   id: { type: String, unique: true }, //starting at 1

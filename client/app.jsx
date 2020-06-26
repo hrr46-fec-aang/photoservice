@@ -23,7 +23,7 @@ class App extends React.Component {
       photos: [],
       campsite: {},
       isLoaded: false,
-      currentPhoto: {},
+      currentPhoto: undefined,
     };
   }
 
@@ -64,42 +64,23 @@ class App extends React.Component {
     if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
-      if (this.state.currentPhoto.id !== undefined) {
-        return (
-          <div>
-            <Navbar>Place holder for navbar</Navbar>
-            <PhotoBanner>
-              {this.state.photos.map((photo) => {
-                return (
-                  <Photo
-                    photo={photo}
-                    key={photo._id}
-                    clickHandler={this.photoClickHandler.bind(this)}
-                  />
-                );
-              })}
-            </PhotoBanner>
-            <LargePhoto currentphoto={this.state.currentPhoto} />
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <Navbar>Place holder for navbar</Navbar>
-            <PhotoBanner>
-              {this.state.photos.map((photo) => {
-                return (
-                  <Photo
-                    photo={photo}
-                    key={photo._id}
-                    clickHandler={this.photoClickHandler.bind(this)}
-                  />
-                );
-              })}
-            </PhotoBanner>
-          </div>
-        );
-      }
+      return (
+        <div>
+          <Navbar>Place holder for navbar</Navbar>
+          <PhotoBanner>
+            {this.state.photos.map((photo) => {
+              return (
+                <Photo
+                  photo={photo}
+                  key={photo._id}
+                  clickHandler={this.photoClickHandler.bind(this)}
+                />
+              );
+            })}
+          </PhotoBanner>
+          <LargePhoto currentphoto={this.state.currentPhoto} />
+        </div>
+      );
     }
   }
 }
