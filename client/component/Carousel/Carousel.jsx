@@ -5,6 +5,7 @@ import Description from './Description.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -53,6 +54,11 @@ class Carousel extends React.Component {
       <div>
         <div>{`${index}/${length}`}</div>
         <Info photo={photo} />
+        <FontAwesomeIcon
+          icon={faTimes}
+          size="3x"
+          onClick={this.props.handleClose}
+        />
         <FontAwesomeIcon
           icon={faAngleLeft}
           size="4x"

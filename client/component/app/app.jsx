@@ -62,6 +62,12 @@ class App extends React.Component {
     });
   }
 
+  handleClose() {
+    this.setState({
+      isOpen: false,
+    });
+  }
+
   render() {
     if (!this.state.isLoaded) {
       return <div>Loading...</div>;
@@ -70,6 +76,7 @@ class App extends React.Component {
         <Carousel
           photos={this.state.photos}
           currentIndex={this.state.currentPhoto}
+          handleClose={this.handleClose.bind(this)}
         />
       ) : null;
       if (this.state.isOpen) {
