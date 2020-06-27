@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Photo from './photo.jsx';
-import LargePhoto from './largePhoto.jsx';
 import styled from 'styled-components';
-import Carousel from './Carousel.jsx';
+import Carousel from '../Carousel/Carousel.jsx';
 
 const PhotoBanner = styled.div`
   height: 480px;

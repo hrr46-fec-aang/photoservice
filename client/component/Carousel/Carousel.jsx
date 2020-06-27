@@ -1,10 +1,11 @@
 import React from 'react';
 import ImageSlide from './ImageSlide.jsx';
-import Info from './Info.jsx';
+import Info from './info.jsx';
 import Description from './Description.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
