@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Photo from './photo.jsx';
-import LargePhoto from './largePhoto.jsx';
 import styled from 'styled-components';
+import Carousel from '../Carousel/Carousel.jsx';
 
 const PhotoBanner = styled.div`
   height: 480px;
@@ -16,6 +15,12 @@ const Navbar = styled.div`
   width: 100%;
   background-color: aqua;
 `;
+
+const ImageinBanner = styled.img`
+  height: 100%;
+  padding: 5px;
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +28,8 @@ class App extends React.Component {
       photos: [],
       campsite: {},
       isLoaded: false,
-      currentPhoto: undefined,
+      currentPhoto: '',
+      isOpen: false,
     };
   }
 
@@ -49,14 +55,16 @@ class App extends React.Component {
       });
   }
 
-  photoClickHandler(photoid) {
-    const url = window.location.pathname;
-    const id = url.slice(1, url.length - 1);
-    axios.get(`/site/${id}/${photoid}`).then((res) => {
-      this.setState({
-        currentPhoto: res.data[0],
-      });
-      console.log(this.state.currentPhoto);
+  photoClickHandler(e) {
+    this.setState({
+      currentPhoto: e.target.id,
+      isOpen: true,
+    });
+  }
+
+  handleClose() {
+    this.setState({
+      isOpen: false,
     });
   }
 
@@ -64,21 +72,31 @@ class App extends React.Component {
     if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
+      const carouselComponent = this.state.isOpen ? (
+        <Carousel
+          photos={this.state.photos}
+          currentIndex={this.state.currentPhoto}
+          handleClose={this.handleClose.bind(this)}
+        />
+      ) : null;
+      if (this.state.isOpen) {
+      }
       return (
         <div>
           <Navbar>Place holder for navbar</Navbar>
           <PhotoBanner>
-            {this.state.photos.map((photo) => {
+            {this.state.photos.map((photo, index) => {
               return (
-                <Photo
-                  photo={photo}
+                <ImageinBanner
+                  src={photo.url}
                   key={photo._id}
-                  clickHandler={this.photoClickHandler.bind(this)}
-                />
+                  id={index}
+                  onClick={this.photoClickHandler.bind(this)}
+                ></ImageinBanner>
               );
             })}
           </PhotoBanner>
-          <LargePhoto currentphoto={this.state.currentPhoto} />
+          {carouselComponent}
         </div>
       );
     }

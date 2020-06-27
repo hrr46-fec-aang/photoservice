@@ -39,6 +39,9 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.10.3",
     "@babel/polyfill": "^7.10.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.19.2",
     "babel-jest": "^26.1.0",
     "body-parser": "^1.19.0",
