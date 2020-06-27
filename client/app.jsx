@@ -70,7 +70,6 @@ class App extends React.Component {
     } else {
       const carouselComponent = this.state.isOpen ? (
         <Carousel
-          isOpen={this.state.isOpen}
           photos={this.state.photos}
           currentIndex={this.state.currentPhoto}
         />
