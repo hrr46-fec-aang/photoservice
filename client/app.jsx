@@ -68,6 +68,15 @@ class App extends React.Component {
     if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
+      const carouselComponent = this.state.isOpen ? (
+        <Carousel
+          isOpen={this.state.isOpen}
+          photos={this.state.photos}
+          currentIndex={this.state.currentPhoto}
+        />
+      ) : null;
+      if (this.state.isOpen) {
+      }
       return (
         <div>
           <Navbar>Place holder for navbar</Navbar>
@@ -83,11 +92,7 @@ class App extends React.Component {
               );
             })}
           </PhotoBanner>
-          <Carousel
-            isOpen={this.state.isOpen}
-            photos={this.state.photos}
-            currentIndex={this.state.currentPhoto}
-          />
+          {carouselComponent}
         </div>
       );
     }

@@ -5,7 +5,6 @@ const ImageSlide = ({ photo }) => {
     display: 'flex',
     height: '800px',
     width: 'auto',
-    alignItems: 'center',
   };
   return <img style={style} src={photo.url} />;
 };
