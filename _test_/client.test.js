@@ -9,9 +9,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-import App from '../client/app';
-import LargePhoto from '../client/largePhoto';
-import Photo from '../client/photo';
+import App from '../client/component/app/app.jsx';
 
 describe('App Component', () => {
   let component;
