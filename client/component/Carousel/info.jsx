@@ -1,7 +1,7 @@
 import React from 'react';
 import Helpful from './Helpful.jsx';
+import moment from 'moment';
 const Info = ({ photo, index, length }) => {
-  // const helpfulHandle = () => {};
   return (
     <div>
       <img src={photo.user.profile_pic_url}></img>
@@ -9,7 +9,7 @@ const Info = ({ photo, index, length }) => {
       <button
       // onClick={this.helpfulHandle.bind(this)}
       >{`Helpful ${photo.thumbs}`}</button>
-      <p>{photo.date}</p>
+      <p>{moment(photo.date).fromNow()}</p>
     </div>
   );
 };

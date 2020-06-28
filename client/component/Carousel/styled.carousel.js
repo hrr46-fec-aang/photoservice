@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Main = styled.div`
+  overflow: auto;
   display: grid;
   position: fixed;
   z-index: 1; /* Sit on top */
@@ -8,8 +9,7 @@ export const Main = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   grid-template-row: 50px auto 50px;
   grid-template-column: 30px auto 30px;
   grid-template-areas:
@@ -42,6 +42,7 @@ export const CloseButton = styled.div`
 `;
 
 export const LeftArrow = styled.div`
+  cursor: pointer;
   grid-area: previous;
   color: #8e9490;
   align-self: center;
@@ -50,6 +51,7 @@ export const LeftArrow = styled.div`
 `;
 
 export const RightArrow = styled.div`
+  cursor: pointer;
   grid-area: next;
   color: #8e9490;
   align-self: center;
@@ -58,10 +60,14 @@ export const RightArrow = styled.div`
 `;
 export const PhotoCarousel = styled.div`
   grid-area: carousel;
+  justify-self: center;
 `;
 
 export const Desc = styled.div`
   grid-area: description;
   color: white;
   justify-self: center;
+  align-self: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;

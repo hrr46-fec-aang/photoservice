@@ -1,7 +1,6 @@
 import React from 'react';
 import ImageSlide from './ImageSlide.jsx';
 import Info from './info.jsx';
-import Description from './Description.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleLeft,
@@ -91,9 +90,7 @@ class Carousel extends React.Component {
             onClick={this.next.bind(this)}
           />
         </RightArrow>
-        <Desc>
-          <Description photo={photo} />
-        </Desc>
+        <Desc>{photo.description}</Desc>
       </Main>
     );
   }

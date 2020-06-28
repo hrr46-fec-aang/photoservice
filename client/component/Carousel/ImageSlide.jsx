@@ -1,12 +1,7 @@
 import React from 'react';
-
+import { Image } from './styled.imageslide.js';
 const ImageSlide = ({ photo }) => {
-  const style = {
-    display: 'flex',
-    height: '800px',
-    width: 'auto',
-  };
-  return <img style={style} src={photo.url} />;
+  return <Image src={photo.url}></Image>;
 };
 
 export default ImageSlide;
