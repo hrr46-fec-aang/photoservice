@@ -60,13 +60,14 @@ class App extends React.Component {
           photos={this.state.photos}
           currentIndex={this.state.currentPhoto}
           handleClose={this.handleClose.bind(this)}
+          location={this.state.campsite.location}
         />
       ) : null;
       if (this.state.isOpen) {
       }
       return (
         <Main>
-          <Navbar>Place holder for navbar</Navbar>
+          <Navbar></Navbar>
           <PhotoBanner>
             {this.state.photos.map((photo, index) => {
               return (

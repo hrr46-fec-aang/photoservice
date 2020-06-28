@@ -54,7 +54,8 @@ class Carousel extends React.Component {
 
   render() {
     const { currentIndex } = this.state;
-    const { photos } = this.props;
+    const { photos, location } = this.props;
+
     var length = photos.length;
     var index = Number(currentIndex) + 1;
     const photo =
@@ -66,7 +67,7 @@ class Carousel extends React.Component {
       <Main>
         <Num>{`${index}/${length}`}</Num>
         <Header>
-          <Info photo={photo} />
+          <Info photo={photo} location={location} />
         </Header>
         <CloseButton>
           <FontAwesomeIcon icon={faTimes} onClick={this.props.handleClose} />
@@ -75,7 +76,7 @@ class Carousel extends React.Component {
         <LeftArrow>
           <FontAwesomeIcon
             icon={faAngleLeft}
-            size="2x"
+            size="3x"
             color="#8e9490"
             onClick={this.previous.bind(this)}
           />
@@ -86,7 +87,7 @@ class Carousel extends React.Component {
         <RightArrow>
           <FontAwesomeIcon
             icon={faAngleRight}
-            size="2x"
+            size="3x"
             onClick={this.next.bind(this)}
           />
         </RightArrow>

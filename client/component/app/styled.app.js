@@ -10,7 +10,6 @@ export const PhotoBanner = styled.div`
 export const Navbar = styled.div`
   height: 70px;
   width: 100%;
-  background-color: aqua;
 `;
 
 export const ImageinBanner = styled.img`

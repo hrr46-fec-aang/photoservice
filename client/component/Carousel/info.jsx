@@ -1,16 +1,40 @@
 import React from 'react';
 import Helpful from './Helpful.jsx';
 import moment from 'moment';
-const Info = ({ photo, index, length }) => {
+import {
+  Header,
+  LeftSection,
+  RightSection,
+  Avatar,
+  Username,
+  Time,
+  Location,
+  LikeButton,
+} from './styled.info.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
+const Info = ({ photo, location }) => {
   return (
-    <div>
-      <img src={photo.user.profile_pic_url}></img>
-      <p>{photo.user.username}</p>
-      <button
-      // onClick={this.helpfulHandle.bind(this)}
-      >{`Helpful ${photo.thumbs}`}</button>
-      <p>{moment(photo.date).fromNow()}</p>
-    </div>
+    <Header>
+      <LeftSection>
+        <Avatar src={photo.user.profile_pic_url}></Avatar>
+        <Username>{photo.user.username}</Username>
+        <Time>{moment(photo.date).fromNow()}</Time>
+        <Location>
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          {` ${location}`}
+        </Location>
+      </LeftSection>
+      <RightSection>
+        <LikeButton
+        // onClick={this.helpfulHandle.bind(this)}
+        >
+          <FontAwesomeIcon icon={faThumbsUp} />
+          {` Helpful   ${photo.thumbs}`}
+        </LikeButton>
+      </RightSection>
+    </Header>
   );
 };
 
