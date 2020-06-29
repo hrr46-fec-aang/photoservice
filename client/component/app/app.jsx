@@ -1,25 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import { PhotoBanner, Navbar, ImageinBanner, Main } from './styled.app.js';
+
 import Carousel from '../Carousel/Carousel.jsx';
-
-const PhotoBanner = styled.div`
-  height: 480px;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-`;
-
-const Navbar = styled.div`
-  height: 70px;
-  width: 100%;
-  background-color: aqua;
-`;
-
-const ImageinBanner = styled.img`
-  height: 100%;
-  padding: 5px;
-`;
 
 class App extends React.Component {
   constructor(props) {
@@ -77,13 +60,14 @@ class App extends React.Component {
           photos={this.state.photos}
           currentIndex={this.state.currentPhoto}
           handleClose={this.handleClose.bind(this)}
+          location={this.state.campsite.location}
         />
       ) : null;
       if (this.state.isOpen) {
       }
       return (
-        <div>
-          <Navbar>Place holder for navbar</Navbar>
+        <Main>
+          <Navbar></Navbar>
           <PhotoBanner>
             {this.state.photos.map((photo, index) => {
               return (
@@ -97,7 +81,7 @@ class App extends React.Component {
             })}
           </PhotoBanner>
           {carouselComponent}
-        </div>
+        </Main>
       );
     }
   }

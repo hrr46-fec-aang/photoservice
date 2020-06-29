@@ -1,11 +1,23 @@
 import React from 'react';
 import ImageSlide from './ImageSlide.jsx';
 import Info from './info.jsx';
-import Description from './Description.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAngleLeft,
+  faAngleRight,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
+
+import {
+  Main,
+  Num,
+  Header,
+  CloseButton,
+  LeftArrow,
+  RightArrow,
+  PhotoCarousel,
+  Desc,
+} from './styled.carousel.js';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -23,7 +35,7 @@ class Carousel extends React.Component {
 
   previous() {
     var photoCount = this.props.photos.length;
-    var previousIndex = this.state.currentIndex - 1;
+    var previousIndex = Number(this.state.currentIndex) - 1;
     previousIndex =
       previousIndex < 0 ? photoCount + previousIndex : previousIndex;
     this.setState({
@@ -33,7 +45,7 @@ class Carousel extends React.Component {
 
   next() {
     var photoCount = this.props.photos.length;
-    var nextIndex = this.state.currentIndex + 1;
+    var nextIndex = Number(this.state.currentIndex) + 1;
     nextIndex = nextIndex >= photoCount ? nextIndex - photoCount : nextIndex;
     this.setState({
       currentIndex: nextIndex,
@@ -42,36 +54,44 @@ class Carousel extends React.Component {
 
   render() {
     const { currentIndex } = this.state;
-    const { photos } = this.props;
+    const { photos, location } = this.props;
+
     var length = photos.length;
     var index = Number(currentIndex) + 1;
     const photo =
       currentIndex === undefined
         ? photos[this.props.currentIndex]
         : photos[currentIndex];
-
     return (
-      <div>
-        <div>{`${index}/${length}`}</div>
-        <Info photo={photo} />
-        <FontAwesomeIcon
-          icon={faTimes}
-          size="3x"
-          onClick={this.props.handleClose}
-        />
-        <FontAwesomeIcon
-          icon={faAngleLeft}
-          size="4x"
-          onClick={this.previous.bind(this)}
-        />
-        <ImageSlide photo={photo} />
-        <FontAwesomeIcon
-          icon={faAngleRight}
-          size="4x"
-          onClick={this.next.bind(this)}
-        />
-        <Description photo={photo} />
-      </div>
+      <Main>
+        <Num>{`${index}/${length}`}</Num>
+        <Header>
+          <Info photo={photo} location={location} />
+        </Header>
+        <CloseButton>
+          <FontAwesomeIcon icon={faTimes} onClick={this.props.handleClose} />
+        </CloseButton>
+
+        <LeftArrow>
+          <FontAwesomeIcon
+            icon={faAngleLeft}
+            size="3x"
+            color="#8e9490"
+            onClick={this.previous.bind(this)}
+          />
+        </LeftArrow>
+        <PhotoCarousel>
+          <ImageSlide photo={photo} />
+        </PhotoCarousel>
+        <RightArrow>
+          <FontAwesomeIcon
+            icon={faAngleRight}
+            size="3x"
+            onClick={this.next.bind(this)}
+          />
+        </RightArrow>
+        <Desc>{photo.description}</Desc>
+      </Main>
     );
   }
 }
