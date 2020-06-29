@@ -1,6 +1,7 @@
 import React from 'react';
 import Helpful from './Helpful.jsx';
 import moment from 'moment';
+import axios from 'axios';
 import {
   Header,
   LeftSection,
@@ -18,8 +19,35 @@ class Info extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false,
+      clicked: -1,
+      thumbs: 0,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      thumbs: this.props.photo.thumbs,
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    var photoid = this.props.photo._id;
+    const url = window.location.pathname;
+    const id = url.slice(1, url.length - 1);
+    if (prevProps.photo !== this.props.photo) {
+      this.setState({ thumbs: this.props.photo.thumbs });
+    }
+  }
+
+  helpfulHandle() {
+    var photoid = this.props.photo._id;
+    const url = window.location.pathname;
+    const id = url.slice(1, url.length - 1);
+    const flag = this.state.clicked * -1;
+    axios
+      .put(`/site/${id}/${photoid}/${flag}`)
+      .then((res) => this.setState({ clicked: flag, thumbs: res.data }))
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -37,10 +65,11 @@ class Info extends React.Component {
         </LeftSection>
         <RightSection>
           <LikeButton
-          // onClick={this.helpfulHandle.bind(this)}
+            isClicked={this.state.clicked}
+            onClick={this.helpfulHandle.bind(this)}
           >
             <FontAwesomeIcon icon={faThumbsUp} />
-            {` Helpful   ${photo.thumbs}`}
+            {` Helpful   ${this.state.thumbs}`}
           </LikeButton>
         </RightSection>
       </Header>

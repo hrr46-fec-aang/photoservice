@@ -29,12 +29,16 @@ app.put('/site/:id/:photoid/:liked', (req, res) => {
   Camp.findOneAndUpdate(
     { id: campid, 'photos._id': photoid },
     { $inc: { 'photos.$.thumbs': liked } },
-    { new: true }
-  ).exec((err, photo) => {
+    {
+      projection: { 'photos.$': 1 },
+      returnOriginal: false,
+    }
+  ).exec((err, data) => {
     if (err) {
       res.sendStatus(404);
     } else {
-      res.status(200).json(photo);
+      var thumbs = data.photos[0].thumbs + liked;
+      res.status(200).json(thumbs);
     }
   });
 });

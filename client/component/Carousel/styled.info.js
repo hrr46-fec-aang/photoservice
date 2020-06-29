@@ -63,7 +63,7 @@ export const LikeButton = styled.button`
   font-size: 1.1rem;
   text-align: center;
   border: 1px solid transparent;
-  background-color: #40d9ac;
+  background-color: ${(props) => (props.isClicked === 1 ? 'gray' : '#40d9ac')};
   color: white;
   &:hover {
     opacity: 0.8;
