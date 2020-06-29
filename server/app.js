@@ -15,22 +15,24 @@ app.get('/site/:id', (req, res) => {
   var campid = req.params.id;
   Camp.find({ id: campid }).exec((err, campsite) => {
     if (err) {
-      res.status(404).send(err);
+      res.status(404).send('Failed to find campsite');
     } else {
       res.status(200).json(campsite);
     }
   });
 });
 
-app.get('/site/:id/:photoid', (req, res) => {
+app.put('/site/:id/:photoid/:liked', (req, res) => {
   var campid = req.params.id;
   var photoid = req.params.photoid;
-  Camp.find(
+  var liked = Number(req.params.liked);
+  Camp.findOneAndUpdate(
     { id: campid, 'photos._id': photoid },
-    { id: 1, location: 1, 'photos.$': 1 }
+    { $inc: { 'photos.$.thumbs': liked } },
+    { new: true }
   ).exec((err, photo) => {
     if (err) {
-      res.status(404).send(err);
+      res.sendStatus(404);
     } else {
       res.status(200).json(photo);
     }
