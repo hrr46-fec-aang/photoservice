@@ -62,7 +62,6 @@ class Carousel extends React.Component {
       currentIndex === undefined
         ? photos[this.props.currentIndex]
         : photos[currentIndex];
-    console.log(currentIndex);
     return (
       <Main>
         <Num>{`${index}/${length}`}</Num>
