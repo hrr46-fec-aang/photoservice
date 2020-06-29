@@ -35,7 +35,7 @@ class Info extends React.Component {
     const url = window.location.pathname;
     const id = url.slice(1, url.length - 1);
     if (prevProps.photo !== this.props.photo) {
-      this.setState({ thumbs: this.props.photo.thumbs });
+      this.setState({ thumbs: this.props.photo.thumbs, clicked: -1 });
     }
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './component/app/app.jsx';
+import PhotoApp from './component/app/photoApp.jsx';
 import styles from './style.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<PhotoApp />, document.getElementById('photo'));

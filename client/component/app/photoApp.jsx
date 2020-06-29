@@ -4,7 +4,7 @@ import { PhotoBanner, Navbar, ImageinBanner, Main } from './styled.app.js';
 
 import Carousel from '../Carousel/Carousel.jsx';
 
-class App extends React.Component {
+class PhotoApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,4 +87,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default PhotoApp;
