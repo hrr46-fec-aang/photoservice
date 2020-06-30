@@ -20,7 +20,7 @@ class PhotoApp extends React.Component {
     const url = window.location.pathname;
     console.log(url);
     if (url === '/') {
-      console.log('Welcome!');
+      this.getPhotos(30);
     } else {
       const id = url.slice(1, url.length - 1);
       this.getPhotos(id);
