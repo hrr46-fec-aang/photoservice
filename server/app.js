@@ -44,4 +44,19 @@ app.put('/site/:id/:photoid/:liked', (req, res) => {
   });
 });
 
+app.get('/site/:id/:photoid/thumbs', (req, res) => {
+  var campid = req.params.id;
+  var photoid = req.params.photoid;
+  Camp.find({ id: campid, 'photos._id': photoid }, { 'photos.$': 1 }).exec(
+    (err, data) => {
+      if (err) {
+        res.status(404).send(err);
+      } else {
+        var thumbs = data[0].photos[0].thumbs;
+        res.status(200).json(thumbs);
+      }
+    }
+  );
+});
+
 module.exports = app;

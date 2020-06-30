@@ -25,9 +25,13 @@ class Info extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      thumbs: this.props.photo.thumbs,
-    });
+    var photoid = this.props.photo._id;
+    const url = window.location.pathname;
+    const id = url.slice(1, url.length - 1);
+    axios
+      .get(`http://localhost:2333/site/${id}/${photoid}/thumbs`)
+      .then((res) => this.setState({ thumbs: res.data }))
+      .catch((err) => console.log(err));
   }
 
   componentDidUpdate(prevProps, prevState) {
