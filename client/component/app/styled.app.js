@@ -15,6 +15,7 @@ export const Navbar = styled.div`
 export const ImageinBanner = styled.img`
   height: 100%;
   padding: 5px;
+  width: auto;
   cursor: pointer;
 `;
 

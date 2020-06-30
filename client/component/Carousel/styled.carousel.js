@@ -4,7 +4,7 @@ export const Main = styled.div`
   overflow: hidden;
   display: grid;
   position: fixed;
-  z-index: 1; /* Sit on top */
+  z-index: 3; /* Sit on top */
   left: 0;
   top: 0;
   width: 100vw;
