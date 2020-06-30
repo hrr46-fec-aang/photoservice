@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/../public'));
+app.use(express.static(path.resolve(__dirname + '/../public')));
 app.use('/:id', express.static(path.resolve(__dirname + '/../public')));
 
 app.get('/site/:id', (req, res) => {

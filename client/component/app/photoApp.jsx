@@ -18,6 +18,7 @@ class PhotoApp extends React.Component {
 
   componentDidMount() {
     const url = window.location.pathname;
+    console.log(url);
     if (url === '/') {
       console.log('Welcome!');
     } else {
@@ -28,7 +29,7 @@ class PhotoApp extends React.Component {
 
   getPhotos(id) {
     axios
-      .get(`/site/${id}`)
+      .get(`http://localhost:2333/site/${id}`)
       .then((camp) => {
         this.setState({
           isLoaded: true,

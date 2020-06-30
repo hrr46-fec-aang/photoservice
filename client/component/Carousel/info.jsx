@@ -45,7 +45,7 @@ class Info extends React.Component {
     const id = url.slice(1, url.length - 1);
     const flag = this.state.clicked * -1;
     axios
-      .put(`/site/${id}/${photoid}/${flag}`)
+      .put(`http://localhost:2333/site/${id}/${photoid}/${flag}`)
       .then((res) => this.setState({ clicked: flag, thumbs: res.data }))
       .catch((err) => console.log(err));
   }
