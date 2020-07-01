@@ -40,6 +40,7 @@ export const CloseButton = styled.div`
   color: #f1f1f1;
   font-size: 25px;
   transition: 0.3s;
+  padding-right: 20px;
 `;
 
 export const LeftArrow = styled.div`
@@ -48,7 +49,7 @@ export const LeftArrow = styled.div`
   color: #8e9490;
   align-self: center;
   justify-self: start;
-  padding-left: 10px;
+  padding-left: 20px;
   &:hover {
     font-size: 120%;
   }
@@ -60,7 +61,7 @@ export const RightArrow = styled.div`
   color: #8e9490;
   align-self: center;
   justify-self: end;
-  padding-right: 10px;
+  padding-right: 20px;
   &:hover {
     font-size: 120%;
   }

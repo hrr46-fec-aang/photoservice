@@ -9,6 +9,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  next();
+});
+
 app.use(express.static(__dirname + '/../public/'));
 app.use('/:id', express.static(path.resolve(__dirname + '/../public/')));
 

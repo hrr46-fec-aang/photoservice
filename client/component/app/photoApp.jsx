@@ -72,7 +72,6 @@ class PhotoApp extends React.Component {
       }
       return (
         <Main>
-          <Navbar></Navbar>
           <PhotoBanner>
             {this.state.photos.map((photo, index) => {
               return (
