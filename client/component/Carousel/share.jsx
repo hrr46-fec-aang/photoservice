@@ -21,6 +21,7 @@ const Link = styled.a`
 `;
 
 var Share = () => {
+  var url = window.location.href;
   return (
     <ShareButton>
       <Link href="https://www.pinterest.com">
@@ -32,7 +33,7 @@ var Share = () => {
       <Link href="https://twitter.com/explore">
         <FontAwesomeIcon icon={faTwitter} />
       </Link>
-      <Link>
+      <Link href={url}>
         <FontAwesomeIcon icon={faLink} />
       </Link>
     </ShareButton>
