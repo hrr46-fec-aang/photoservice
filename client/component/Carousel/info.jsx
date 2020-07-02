@@ -1,5 +1,6 @@
 import React from 'react';
 import Helpful from './Helpful.jsx';
+import Share from './Share.jsx';
 import moment from 'moment';
 import axios from 'axios';
 import {
@@ -75,6 +76,7 @@ class Info extends React.Component {
             <FontAwesomeIcon icon={faThumbsUp} />
             {` Helpful   ${this.state.thumbs}`}
           </LikeButton>
+          <Share />
         </RightSection>
       </Header>
     );
