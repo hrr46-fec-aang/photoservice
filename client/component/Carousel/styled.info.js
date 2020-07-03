@@ -27,14 +27,14 @@ export const Avatar = styled.img`
 `;
 
 export const Username = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   grid-area: username;
   padding-top: 15px;
   justify-self: start;
 `;
 
 export const Time = styled.div`
-  font-size: 0.85rem;
+  font-size: 1.3rem;
   grid-area: time;
   align-self: start;
   padding-left: 5px;
@@ -43,7 +43,7 @@ export const Time = styled.div`
 `;
 
 export const Location = styled.div`
-  font-size: 0.85rem;
+  font-size: 1.3rem;
   grid-area: location;
   height: 100%;
   justify-self: left;
@@ -57,10 +57,10 @@ export const RightSection = styled.div`
 
 export const LikeButton = styled.button`
   cursor: pointer;
-  width: 120px;
+  width: 130px;
   padding: 12px 0;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   text-align: center;
   border: 1px solid transparent;
   background-color: ${(props) => (props.isClicked === 1 ? 'gray' : '#40d9ac')};
