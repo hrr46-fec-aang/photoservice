@@ -1,6 +1,6 @@
 import React from 'react';
 import Helpful from './Helpful.jsx';
-import Share from './Share.jsx';
+import Share from './share.jsx';
 import moment from 'moment';
 import axios from 'axios';
 import {
