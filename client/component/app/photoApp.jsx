@@ -29,7 +29,7 @@ class PhotoApp extends React.Component {
 
   getPhotos(id) {
     axios
-      .get(`http://localhost:2333/site/${id}`)
+      .get(`/site/${id}`)
       .then((camp) => {
         this.setState({
           isLoaded: true,
