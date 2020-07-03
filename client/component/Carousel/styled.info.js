@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Header = styled.div`
   display: grid;
   grid-template-columns: 7fr 3fr;
+  margin-top: 20px;
 `;
 
 export const LeftSection = styled.div`
