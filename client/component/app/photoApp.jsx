@@ -28,8 +28,8 @@ class PhotoApp extends React.Component {
 
   getPhotos(id) {
     axios
-      // .get(`http://3.81.11.106:2333/site/${id}`)
-      .get(`http://localhost:2333/site/${id}`)
+      .get(`http://3.81.11.106:2333/site/${id}`)
+      // .get(`http://localhost:2333/site/${id}`)
       .then((camp) => {
         this.setState({
           isLoaded: true,
