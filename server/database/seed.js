@@ -3,16 +3,22 @@ const Camp = require('./Camp.js');
 const faker = require('faker');
 
 var sampleImageUrl = [
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0145.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0239.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0347.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0409.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0410.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0411.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0438.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0496.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0497.JPG',
-  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/IMG_0505.JPG',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/will-truettner-QprJgwK27us-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/julie-kwak-ifmafgQhjMk-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/vincent-keiman-ul_m5dHThaM-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/shaqyl-shamsudheen-CFTcy_mN4ok-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/toni-benlliure--kFBs7CP_Oo-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/joshua-coleman-R1OSU00xo78-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/steve-halama-tNdSDsjTRTQ-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/paul-hermann-XJuhZqEE4Go-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/ridwan-kosasih-vXzSkC3-n5I-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/ethan-dow-zmA2gYoK844-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/ellen-auer-retQsZtCH8g-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/adrian-infernus-FAJr9FVJunQ-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/esther-tuttle-dyjH3YMblpo-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/bryan-carrillos-H5LgA9Knjp8-unsplash.jpg',
+  'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/clay-banks-Ppz6b-YUDHw-unsplash.jpg',
   'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/photo-1468245856972-a0333f3f8293.jpg',
   'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/photo-1470246973918-29a93221c455.jpg',
   'https://campangphotobucket.s3.us-east-2.amazonaws.com/campphoto/photo-1475483768296-6163e08872a1.jpg',
@@ -27,7 +33,7 @@ var sampleImageUrl = [
 
 var randomDataGenerator = function () {
   var result = [];
-  for (var i = 1; i < 151; i++) {
+  for (var i = 1; i < 101; i++) {
     id = i;
     var photoarray = [];
     var photoCount = Math.floor(Math.random() * 5) + 5;
