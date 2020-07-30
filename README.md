@@ -122,4 +122,4 @@ Delete a review by its id : /api/reviews/:reviewid?id={}
 
 ## Authors
 
-- **Jing Chen** - _Initial work_ - [KitchenMaster](https://github.com/jchen0506/KitchenMaster)
+- **Jing Chen** - _Initial work_ - [CampAang-Photo Carousel](https://github.com/hrr46-fec-aang/photoservice)
