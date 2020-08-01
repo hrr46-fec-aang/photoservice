@@ -66,6 +66,6 @@ var randomData = randomDataGenerator();
 var insertSampleCamp = function () {
   Camp.create(randomData)
     .then(() => db.close())
-    .catch((err) => console.log(err));
+    .catch((err) => console.log('Error when seeding database'));
 };
 insertSampleCamp();

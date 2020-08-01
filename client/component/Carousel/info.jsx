@@ -32,9 +32,8 @@ class Info extends React.Component {
     axios
       .get(`http://localhost:2333/site/${id}/${photoid}/thumbs`)
       // .get(`http://3.81.11.106:2333/site/${id}/${photoid}/thumbs`)
-      // .get(`http://54.237.104.123:2333/site/${id}/${photoid}/thumbs`)
       .then((res) => this.setState({ thumbs: res.data }))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Error when retrieving data'));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -55,9 +54,8 @@ class Info extends React.Component {
     axios
       .put(`http://localhost:2333/site/${id}/${photoid}/${flag}`)
       // .put(`http://3.81.11.106:2333/site/${id}/${photoid}/${flag}`)
-      // .put(`http://54.237.104.123:2333/site/${id}/${photoid}/${flag}`)
       .then((res) => this.setState({ clicked: flag, thumbs: res.data }))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Error when updating thumbs'));
   }
 
   render() {
